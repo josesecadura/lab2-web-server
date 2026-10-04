@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Error</title>
+    <style>
+        body { font-family: sans-serif; text-align: center; margin-top: 10%; color: #2c3e50; }
+        h1 { font-size: 4em; margin: 0; }
+        a { color: #007acc; }
+    </style>
+</head>
+<body>
+    <h1 th:text="${status}">Error</h1>
+    <h2>Vaya, algo ha salido mal</h2>
+    <p>No hemos encontrado la página.</p>
+    <p>Página a la que accedías: <code th:text="${path}">/</code></p>
+    <a href="/">Volver al inicio</a>
+</body>
+</html>
