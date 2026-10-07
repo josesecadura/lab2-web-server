@@ -16,7 +16,7 @@ Por suerte, al leer el guión de la práctica me di cuenta de que está muy guia
 
 ## What I changed
 
-En esta práctica únicamente se modificó `docs/.gitignore` para añadir la carpeta `/.vscode/`, y **build.gradle.kts**, que fue reformateado al ejecutar `./gradlew ktlintFormat` ya que al principio no funcionaba el proyecto. El resto de archivos añadidos han sido:
+En esta práctica únicamente se modificó `docs/.gitignore` para añadir la carpeta `/.vscode/`, y **build.gradle.kts**, que fue reformateado al ejecutar `./gradlew ktlintFormat` ya que al principio fallaba por el formato (ktlint). El resto de archivos añadidos han sido:
 
 **Añadidos**
 
@@ -36,8 +36,6 @@ En esta práctica únicamente se modificó `docs/.gitignore` para añadir la car
 
 
 ## Technical decisions
-
-## Decisiones técnicas
 
 Al ser una práctica muy guiada y no haber hecho el bonus, las decisiones principales están en los *step further* y en cómo probar cada parte:
 
@@ -60,7 +58,7 @@ Para la página de error con http2:
 - `curl -v --http2 -k -H "Accept: text/html" -i https://127.0.0.1:8443/`
 - Comprueba que una ruta sin página devuelve `HTTP/2 404` con mi `error.html`, mostrando el código y la ruta, y que la conexión usa HTTP/2 (`ALPN: server accepted h2`).
 
-Para el apartado time con hhtp2:
+Para el apartado time con http2:
 - `curl -v --http2 -k -i https://127.0.0.1:8443/time`
 - Comprueba que `/time` devuelve `HTTP/2 200` con un JSON que contiene la hora y la zona.
 
@@ -83,6 +81,7 @@ Después del step further del apartado 3, tras añadir la IP `127.0.0.1`:
   - `error.html`
   - `TimeControllerTest.kt` para el test opcional
   - `application.yml`
+  - `TimeComponent.kt`
 - **Validation steps:** Las comprobaciones descritas en el apartado anterior.
 - **Citations:** Código y comandos proporcionados en la guía.
 - **Human-reviewed:** Revisé los cambios que me proponía para mejorar el `REPORT.md` o los cambios que me propuso en los step further  
