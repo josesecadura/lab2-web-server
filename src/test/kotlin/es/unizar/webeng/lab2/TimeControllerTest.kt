@@ -23,4 +23,19 @@ class TimeControllerTest {
             .andExpect(status().isOk)
             .andExpect(jsonPath("$.time").exists())
     }
+
+    @Test
+    fun timeUsesRequestedZone() {
+        mockMvc
+            .perform(get("/time").param("zone", "Europe/London").accept(MediaType.APPLICATION_JSON))
+            .andExpect(status().isOk)
+            .andExpect(jsonPath("$.zone").value("Europe/London"))
+    }
+
+    @Test
+    fun unknownZoneIsBadRequest() {
+        mockMvc
+            .perform(get("/time").param("zone", "Prueba/Fallo").accept(MediaType.APPLICATION_JSON))
+            .andExpect(status().isBadRequest)
+    }
 }
